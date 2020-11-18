@@ -114,13 +114,13 @@ score = score + Math.round(getFrameRate()/60);
       reset();
     }
     
-  }
+  }camera.position.x=trex.x;
   drawSprites();
 }
 
 function spawnClouds() {
   //write code here to spawn the clouds
-  if (frameCount % 60 === 0) {
+  if (frameCount % camera.position.x === 0) {
     var cloud = createSprite(600,120,40,10);
     cloud.y = Math.round(random(80,120));
     cloud.addImage(cloudImage);
@@ -141,7 +141,7 @@ function spawnClouds() {
 }
 
 function spawnObstacles() {
-  if(frameCount % 60 === 0) {
+  if(frameCount % camera.position.x === 0) {
     var obstacle = createSprite(600,165,10,40);
     obstacle.velocityX = -4;
     
